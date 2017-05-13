@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2017 at 06:42 PM
+-- Generation Time: May 13, 2017 at 08:03 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
@@ -67,13 +67,6 @@ CREATE TABLE `berita` (
   `konten` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `berita`
---
-
-INSERT INTO `berita` (`id`, `tanggal`, `gambar`, `judul`, `konten`) VALUES
-(0, '2017-05-11', '1.png', 'haloya', '<p>gfcyufcty</p>');
-
 -- --------------------------------------------------------
 
 --
@@ -81,6 +74,7 @@ INSERT INTO `berita` (`id`, `tanggal`, `gambar`, `judul`, `konten`) VALUES
 --
 
 CREATE TABLE `comment` (
+  `id` int(3) NOT NULL,
   `guest_email` varchar(30) NOT NULL,
   `guest_username` varchar(12) NOT NULL,
   `comment` text NOT NULL
@@ -108,6 +102,7 @@ CREATE TABLE `contact` (
 --
 
 CREATE TABLE `playlist` (
+  `id` int(3) NOT NULL,
   `judul` varchar(30) NOT NULL,
   `penyanyi` int(30) NOT NULL,
   `audio` int(100) NOT NULL
@@ -130,6 +125,7 @@ CREATE TABLE `profil` (
 --
 
 CREATE TABLE `video` (
+  `id` int(3) NOT NULL,
   `judul` varchar(30) NOT NULL,
   `penyanyi` varchar(30) NOT NULL,
   `video` varchar(100) NOT NULL
@@ -161,7 +157,7 @@ ALTER TABLE `berita`
 -- Indexes for table `comment`
 --
 ALTER TABLE `comment`
-  ADD PRIMARY KEY (`guest_email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `contact`
@@ -169,6 +165,47 @@ ALTER TABLE `comment`
 ALTER TABLE `contact`
   ADD PRIMARY KEY (`telepon`);
 
+--
+-- Indexes for table `playlist`
+--
+ALTER TABLE `playlist`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `video`
+--
+ALTER TABLE `video`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `agenda`
+--
+ALTER TABLE `agenda`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `comment`
+--
+ALTER TABLE `comment`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `playlist`
+--
+ALTER TABLE `playlist`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `video`
+--
+ALTER TABLE `video`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
