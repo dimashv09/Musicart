@@ -7,7 +7,6 @@ extract($_POST);
 $con=mysqli_connect('localhost','root','','db_bmp');
 
 ?>
-
     <!DOCTYPE html>
     <html>
 
@@ -24,7 +23,7 @@ $con=mysqli_connect('localhost','root','','db_bmp');
         <!-- Theme style -->
         <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
 
-        <link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">
+        <link rel="stylesheet" href="dist/css/skins/_all-skins.css">
 
         <!--jquery-->
         <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -63,19 +62,35 @@ $con=mysqli_connect('localhost','root','','db_bmp');
                         <?php
                 if(isset($_GET['page']))
                 {
-                 switch($_GET['page'])
-                {
+                   switch($_GET['page'])
+                  {
+                      case 'gallery': include'form_c.php'; break;
+                      case 'list_gallery': include'list_gallery.php'; break;
 
-                    case 'berita': include'form_b.php'; break;
-                    case 'list_berita': include'list_berita.php';$order=3; break;
+                      case 'aboutme': include'form_d.php'; break;
+                      case 'list_aboutme': include'list_aboutme.php'; break;
 
-					          case 'agenda': include'form_a.php'; break;
-                    case 'list_agenda': include'list_agenda.php';$order=4; break;
+                      case 'comment': include'form_e.php'; break;
+                      case 'list_comment': include'list_comment.php'; break;
 
-                }
+                      case 'berita': include'form_b.php'; break;
+                      case 'list_berita': include'list_berita.php'; break;
+
+  					          case 'agenda': include'form_a.php'; break;
+                      case 'list_agenda': include'list_agenda.php'; break;
+
+                      case 'contact': include'form_h.php'; break;
+                      case 'list_contact': include'list_contact.php'; break;
+
+                      case 'video': include'form_g.php'; break;
+                      case 'list_video': include'list_video.php'; break;
+
+                      case 'playlist': include'form_f.php'; break;
+                      case 'list_playlist': include'list_playlist.php'; break;
+                  }
                 }
             ?>
-                    </section>
+          </section>
                 </div>
                 <!-- /.content-wrapper -->
                 <footer class="main-footer">
@@ -83,6 +98,7 @@ $con=mysqli_connect('localhost','root','','db_bmp');
                         <b>Version</b> 2.3.0
                     </div>
                     <strong>Copyright &copy; 2015<a href="http://ilmu-detil.blogspot.co.id/">Detailed Technology Center</a>.</strong> All rights reserved.
+                    <br><strong>Dengan perubahan Oleh Kelompok RPL 2 (&copy; 2017)</strong>
                 </footer>
                 <div class="control-sidebar-bg"></div>
         </div>
@@ -116,12 +132,8 @@ $con=mysqli_connect('localhost','root','','db_bmp');
                         }, 10);
 					 }
 
-
-
-                });
-
-
-            });
+         });
+       });
         </script>
         <script src="plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="plugins/datatables/dataTables.bootstrap.min.js"></script>

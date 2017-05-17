@@ -8,35 +8,41 @@
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>Tanggal</th>
-                        <th>Waktu</th>
-                        <th>Tempat</th>
-                        <th>Acara</th>
+                        <th>Nama</th>
+                        <th>Telepon</th>
+                        <th>Alamat</th>
+                        <th>Email</th>
+                        <th>Instagram</th>
+                        <th>Facebook</th>
+                        <th>Youtube</th>
+                        <th>Soundcloud</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                      <?php
-                     $qu=mysqli_query($con,"select * from agenda order by id desc");
+                     $qu=mysqli_query($con,"select * from contact");
                      while($has=mysqli_fetch_row($qu))
                      {
-                        $tgl=explode("-",$has[1]);
                         echo "
                         <tr>
-                        <td>$tgl[2]-$tgl[1]-$tgl[0]</td>
+                        <td>$has[1]</td>
                         <td>$has[2]</td>
                         <td>$has[3]</td>
                         <td>$has[4]</td>
+                        <td>$has[5]</td>
+                        <td>$has[6]</td>
+                        <td>$has[7]</td>
+                        <td>$has[8]</td>
                         <td style='text-align:center'>
-                        <a href='index.php?page=agenda&id=$has[0]'><span data-placement='top' data-toggle='tooltip' title='Edit'><button class='btn btn-primary btn-xs' data-title='Edit' data-toggle='modal' data-target='#edit' ><span class='glyphicon glyphicon-pencil'></span></button><span></a>
+                        <a href='index.php?page=contact&id=$has[0]'><span data-placement='top' data-toggle='tooltip' title='Edit'><button class='btn btn-primary btn-xs' data-title='Edit' data-toggle='modal' data-target='#edit' ><span class='glyphicon glyphicon-pencil'></span></button><span></a>
 
-                        <span data-placement='top' data-toggle='tooltip' title='Delete'><button onclick='datadel($has[0],&#39;list_agenda&#39;)' class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#myModal' ><span class='glyphicon glyphicon-trash'></span></button><span>
+                        <span data-placement='top' data-toggle='tooltip' title='Delete'><button onclick='datadel($has[0],&#39;list_contact&#39;)' class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#myModal' ><span class='glyphicon glyphicon-trash'></span></button><span>
                         </td>
                       </tr>
                         ";
                      }
                      ?>
-
                     </tbody>
                   </table>
                 </div><!-- /.box-body -->

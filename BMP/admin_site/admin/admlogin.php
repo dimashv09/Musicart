@@ -44,7 +44,7 @@ if(isset($login)){
     <!-- Font Awesome Icons -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="dist/css/AdminLTE.css" rel="stylesheet" type="text/css" />
     <!-- iCheck -->
     <link href="plugins/iCheck/square/blue.css" rel="stylesheet" type="text/css" />
 

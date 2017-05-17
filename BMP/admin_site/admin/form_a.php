@@ -1,3 +1,4 @@
+<!-- Form Agenda (GIGS) -->
 <?php
 if(isset($_POST['save']))
 {
@@ -29,7 +30,7 @@ elseif(isset($_GET['ps'])=='true1')
 if(isset($_GET['id']))
 {
     $data=mysqli_fetch_row(mysqli_query($con,"select * from agenda where id='".$_GET['id']."'"));
-$tgl=explode("-",$data[1]);
+    $tgl=explode("-",$data[1]);
 }
 
 ?>
@@ -51,7 +52,7 @@ $tgl=explode("-",$data[1]);
                     <div class="form-group">
                         <label for="dua" class="col-sm-2 control-label">Waktu</label>
                         <div class="col-sm-10">
-                            <input type="text" required value="<?php echo isset($data[2])?$data[2]:''; ?>" name="waktu" class="form-control" id="dua" placeholder="Waktu">
+                            <input type="text" required value="<?php echo isset($data[2])?$data[2]:''; ?>" name="waktu" class="form-control" id="dua" placeholder="Waktu [hh:mm:ss]">
                         </div>
                     </div>
                     <div class="form-group">

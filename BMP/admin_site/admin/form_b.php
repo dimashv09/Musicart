@@ -1,3 +1,4 @@
+<!-- Form Artikel/Berita -->
 <?php
 date_default_timezone_set('Asia/Jakarta');
 if(isset($_POST['save']))
@@ -12,10 +13,10 @@ if(isset($_POST['save']))
             $ext=".gif";
         else
             $ext=".png";
-        move_uploaded_file($_FILES['foto']['tmp_name'], "../img/" . basename(($getId[0]+1).$ext));
+        move_uploaded_file($_FILES['foto']['tmp_name'], "../img/newspic/" . basename(($getId[0] + 1).$ext));
     }
 
-    mysqli_query($con,"insert into berita values('','".date('Y-m-d')."','".($getId[0]+1).$ext."','$judul','$konten')");
+    mysqli_query($con,"insert into berita values('','".date('Y-m-d')."','".($getId[0] + 1).$ext."','$judul','$konten')");
 
       echo "
     <script>
@@ -27,13 +28,13 @@ elseif(isset($_POST['update']))
 {
     if(!empty($_FILES['foto']['tmp_name']))
     {
-        unlink("../img/$gambar");
+        unlink("../img/newspic/$gambar");
         $ext=strtolower(substr($_FILES['foto']['name'],-3));
         if($ext=='gif')
             $ext=".gif";
         else
             $ext=".png";
-        move_uploaded_file($_FILES['foto']['tmp_name'], "../img/" . basename(($_GET['id']).$ext));
+        move_uploaded_file($_FILES['foto']['tmp_name'], "../img/newspic/" . basename(($_GET['id']).$ext));
 
         mysqli_query($con,"update berita set judul='$judul',gambar='".$_GET['id'].$ext."',konten='$konten' where id='".$_GET['id']."'");
     }
@@ -51,7 +52,7 @@ elseif(isset($_POST['update']))
 if(isset($_GET['ps'])=='true2')
     echo "<div class='alert alert-success' role='alert'>Data Berhasil Terupdate</div>";
 elseif(isset($_GET['ps'])=='true1')
-    echo "<div class='alert alert-success' role='alert'>Data Berhasil Terimpan</div>";
+    echo "<div class='alert alert-success' role='alert'>Data Berhasil Tersimpan</div>";
 
 if(isset($_GET['id']))
 $data=mysqli_fetch_row(mysqli_query($con,"select * from berita where id='".$_GET['id']."'"));
@@ -103,7 +104,7 @@ $data=mysqli_fetch_row(mysqli_query($con,"select * from berita where id='".$_GET
                                 <div id="image-holder">
                                    <?php
                                     if(isset($_GET['id']))
-                                        echo "<img src='../img/$data[2].'?rand='".rand()."' alt=''>";
+                                        echo "<img src='../img/newspic/$data[2].'?rand='".rand()."' alt=''>";
                                     ?>
                                 </div>
                                 <script>

@@ -3,7 +3,7 @@
  * ----------
  */
 .skin-blue .main-header .navbar {
-  background-color: #3c8dbc;
+  background-color: #EE8943;
 }
 .skin-blue .main-header .navbar .nav > li > a {
   color: #ffffff;
@@ -19,11 +19,11 @@
   color: #f6f6f6;
 }
 .skin-blue .main-header .navbar .sidebar-toggle {
-  color: #ffffff;
+  color: #EE8943;
 }
 .skin-blue .main-header .navbar .sidebar-toggle:hover {
   color: #f6f6f6;
-  background: rgba(0, 0, 0, 0.1);
+  background: #f4bd18;
 }
 .skin-blue .main-header .navbar .sidebar-toggle {
   color: #fff;
@@ -43,12 +43,12 @@
   }
 }
 .skin-blue .main-header .logo {
-  background-color: #367fa9;
+  background-color: #EE8943;
   color: #ffffff;
   border-bottom: 0 solid transparent;
 }
 .skin-blue .main-header .logo:hover {
-  background-color: #357ca5;
+  background-color: #f4bd18;
 }
 .skin-blue .main-header li.user-header {
   background-color: #3c8dbc;
@@ -119,11 +119,11 @@
 }
 .skin-blue .sidebar-form input[type="text"]:focus,
 .skin-blue .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
-  background-color: #fff;
+  background-color: #3B3B3B;
   color: #666;
 }
 .skin-blue .sidebar-form input[type="text"]:focus + .input-group-btn .btn {
-  border-left-color: #fff;
+  border-left-color: #3B3B3B;
 }
 .skin-blue .sidebar-form .btn {
   color: #999;
@@ -668,7 +668,7 @@
   color: #fff;
 }
 .skin-green .main-header .navbar .sidebar-toggle:hover {
-  background-color: #008d4c;
+  background-color: #e3b746;
 }
 @media (max-width: 767px) {
   .skin-green .main-header .navbar .dropdown-menu li.divider {
@@ -968,7 +968,7 @@
     color: #fff;
   }
   .skin-red .main-header .navbar .dropdown-menu li a:hover {
-    background: #d73925;
+    background: rgb(230, 153, 90);
   }
 }
 .skin-red .main-header .logo {
@@ -1009,7 +1009,7 @@
 }
 .skin-red .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
-  background: #2c3b41;
+  background: #877c5c;
 }
 .skin-red .sidebar a {
   color: #b8c7ce;
@@ -1157,7 +1157,7 @@
   font-weight: 600;
 }
 .skin-red-light .sidebar-menu > li > .treeview-menu {
-  background: #f4f4f5;
+  background: #877c5c;
 }
 .skin-red-light .sidebar a {
   color: #444444;
@@ -1299,7 +1299,7 @@
 }
 .skin-yellow .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
-  background: #2c3b41;
+  background: #877c5c;
 }
 .skin-yellow .sidebar a {
   color: #b8c7ce;

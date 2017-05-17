@@ -3,35 +3,31 @@
     <div class="col-xs-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Data Berita</h3>
+                <h3 class="box-title">Isi About Me</h3>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Tanggal</th>
-                            <th>Judul</th>
-                            <th>Gambar</th>
-                            <th>Isi Berita</th>
+                            <th>Foto</th>
+                            <th>Deskripsi</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                        <?php
-                            $qu=mysqli_query($con,"select * from berita order by id desc");
+                            $qu=mysqli_query($con,"select * from profil order by id desc");
                             while($has=mysqli_fetch_row($qu))
                             {
                                 echo "
                                 <tr>
                                     <td>$has[1]</td>
-                                    <td>$has[3]</td>
-                                    <td>$has[2]</td>
-                                    <td>".substr(strip_tags($has[4]),0,30)."....</td>
+                                    <td>".substr(strip_tags($has[2]),0,30)."....</td>
                                     <td style='text-align:center'>
-                        <a href='index.php?page=berita&id=$has[0]'><span data-placement='top' data-toggle='tooltip' title='Edit'><button class='btn btn-primary btn-xs' data-title='Edit' data-toggle='modal' data-target='#edit' ><span class='glyphicon glyphicon-pencil'></span></button><span></a>
+                        <a href='index.php?page=aboutme&id=$has[0]'><span data-placement='top' data-toggle='tooltip' title='Edit'><button class='btn btn-primary btn-xs' data-title='Edit' data-toggle='modal' data-target='#edit' ><span class='glyphicon glyphicon-pencil'></span></button><span></a>
 
-                        <span data-placement='top' data-toggle='tooltip' title='Delete'><button onclick='datadel($has[0],&#39;list_berita&#39;)' class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#myModal' ><span class='glyphicon glyphicon-trash'></span></button><span>
+                        <span data-placement='top' data-toggle='tooltip' title='Delete'><button onclick='datadel($has[0],&#39;list_aboutme&#39;)' class='btn btn-danger btn-xs' data-title='Delete' data-toggle='modal' data-target='#myModal' ><span class='glyphicon glyphicon-trash'></span></button><span>
                                     </td>
                                 </tr>
                                 ";

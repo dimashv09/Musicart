@@ -1,10 +1,10 @@
-<!-- Form Gallery -->
+<!-- Form About Me -->
 <?php
 date_default_timezone_set('Asia/Jakarta');
 if(isset($_POST['save']))
 {
 
-    $getId=mysqli_fetch_row(mysqli_query($con,"select max(id) from gallery"));
+    $getId=mysqli_fetch_row(mysqli_query($con,"select max(id) from profil"));
 
     if(!empty($_FILES['foto']['tmp_name']))
     {
@@ -13,14 +13,14 @@ if(isset($_POST['save']))
             $ext=".gif";
         else
             $ext=".png";
-        move_uploaded_file($_FILES['foto']['tmp_name'], "../img/gallery/" . basename(($getId[0]+1).$ext));
+        move_uploaded_file($_FILES['foto']['tmp_name'], "../img/profil/" . basename(($getId[0]+1).$ext));
     }
 
-    mysqli_query($con,"insert into gallery values('','".($getId[0]+1).$ext."','$konten')");
+    mysqli_query($con,"insert into profil values('','".($getId[0]+1).$ext."','$konten')");
 
       echo "
     <script>
-    location.assign('index.php?page=gallery&ps=true1');
+    location.assign('index.php?page=aboutme&ps=true1');
     </script>
     ";
 }
@@ -28,22 +28,22 @@ elseif(isset($_POST['update']))
 {
     if(!empty($_FILES['foto']['tmp_name']))
     {
-        unlink("../img/gallery/$gambar");
+        unlink("../img/profil/$gambar");
         $ext=strtolower(substr($_FILES['foto']['name'],-3));
         if($ext=='gif')
             $ext=".gif";
         else
             $ext=".png";
-        move_uploaded_file($_FILES['foto']['tmp_name'], "../img/gallery/" . basename(($_GET['id']).$ext));
+        move_uploaded_file($_FILES['foto']['tmp_name'], "../img/profil/" . basename(($_GET['id']).$ext));
 
-        mysqli_query($con,"update gallery set gambar='".$_GET['id'].$ext."',konten='$konten' where id='".$_GET['id']."'");
+        mysqli_query($con,"update profil set gambar='".$_GET['id'].$ext."',konten='$konten' where id='".$_GET['id']."'");
     }
     else
-        mysqli_query($con,"update gallery set konten='$konten' where id='".$_GET['id']."'");
+        mysqli_query($con,"update profil set konten='$konten' where id='".$_GET['id']."'");
 
     echo "
     <script>
-    location.assign('index.php?page=gallery&ps=true2');
+    location.assign('index.php?page=aboutme&ps=true2');
     </script>
     ";
 }
@@ -55,7 +55,7 @@ elseif(isset($_GET['ps'])=='true1')
     echo "<div class='alert alert-success' role='alert'>Data Berhasil Tersimpan</div>";
 
 if(isset($_GET['id']))
-$data=mysqli_fetch_row(mysqli_query($con,"select * from gallery where id='".$_GET['id']."'"));
+$data=mysqli_fetch_row(mysqli_query($con,"select * from profil where id='".$_GET['id']."'"));
 
 ?>
     <style>
@@ -72,26 +72,27 @@ $data=mysqli_fetch_row(mysqli_query($con,"select * from gallery where id='".$_GE
         <div class="col-md-12">
             <div class="box box-info">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Form Input gallery</h3>
+                    <h3 class="box-title">Form Input aboutme</h3>
                 </div>
                 <form class="form-horizontal" method="post" enctype="multipart/form-data">
                    <input type="hidden" name="id" value="<?php echo isset($_GET['id'])?$_GET['id']:''; ?>">
                    <input type="hidden" name="gambar" value="<?php echo isset($data[1])?$data[1]:''; ?>">
                     <div class="box-body">
+
                         <div class="form-group">
-                            <label for="tiga" class="col-sm-2 control-label">Keterangan Gambar</label>
+                            <label for="tiga" class="col-sm-2 control-label">Deskripsi</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control konten" placeholder="Keterangan Gambar" name="konten"><?php echo isset($data[2])?$data[2]:''; ?></textarea>
+                                <textarea class="form-control konten" placeholder="Deskripsi" name="konten"><?php echo isset($data[2])?$data[2]:''; ?></textarea>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="tiga" class="col-sm-2 control-label">Gambar</label>
+                            <label for="tiga" class="col-sm-2 control-label">Foto</label>
                             <div class="col-sm-10">
                                 <input type="file" accept="image/*" name="foto" class="form-control" id="foto">
                                 <div id="image-holder">
                                    <?php
                                     if(isset($_GET['id']))
-                                        echo "<img src='../img/gallery/$data[2].'?rand='".rand()."' alt=''>";
+                                        echo "<img src='../img/profil/$data[2].'?rand='".rand()."' alt=''>";
                                     ?>
                                 </div>
                                 <script>
